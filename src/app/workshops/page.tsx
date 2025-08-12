@@ -1,6 +1,10 @@
 import { AnimatedHeader } from "@/components/layout/AnimatedHeader";
 import { Footer } from "@/components/layout/Footer";
 import { Workshops } from "@/components/sections/Workshops";
+import { UpcomingWorkshop } from "@/types/models";
+import workshopsData from "@/data/workshops.json";
+
+const upcomingWorkshops: UpcomingWorkshop[] = (workshopsData as any).upcoming;
 
 export default function WorkshopsPage() {
   return (
@@ -174,41 +178,34 @@ export default function WorkshopsPage() {
                 Próximos Workshops
               </h3>
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
-                  <div>
-                    <h4 className="font-semibold text-gray-900">
-                      Fotografia Básica
-                    </h4>
-                    <p className="text-sm text-gray-600">15-16 Março 2025</p>
-                  </div>
-                  <span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">
-                    8 vagas
-                  </span>
-                </div>
+                {upcomingWorkshops.map((workshop) => {
+                  const getStatusColor = (status: string) => {
+                    switch (status) {
+                      case "available":
+                        return "bg-green-100 text-green-800";
+                      case "limited":
+                        return "bg-yellow-100 text-yellow-800";
+                      case "almost-full":
+                        return "bg-red-100 text-red-800";
+                      default:
+                        return "bg-gray-100 text-gray-800";
+                    }
+                  };
 
-                <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
-                  <div>
-                    <h4 className="font-semibold text-gray-900">
-                      Desfile Profissional
-                    </h4>
-                    <p className="text-sm text-gray-600">22-23 Março 2025</p>
-                  </div>
-                  <span className="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">
-                    5 vagas
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
-                  <div>
-                    <h4 className="font-semibold text-gray-900">
-                      Posando Avançado
-                    </h4>
-                    <p className="text-sm text-gray-600">29-30 Março 2025</p>
-                  </div>
-                  <span className="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">
-                    3 vagas
-                  </span>
-                </div>
+                  return (
+                    <div key={workshop.id} className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
+                      <div>
+                        <h4 className="font-semibold text-gray-900">
+                          {workshop.title}
+                        </h4>
+                        <p className="text-sm text-gray-600">{workshop.date}</p>
+                      </div>
+                      <span className={`px-3 py-1 ${getStatusColor(workshop.status)} text-sm rounded-full`}>
+                        {workshop.available} vagas
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

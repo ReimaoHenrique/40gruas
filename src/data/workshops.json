@@ -1,0 +1,36 @@
+{
+  "workshops": [
+    {
+      "id": "workshop-fotografia-basica",
+      "title": "Fotografia Básica para Modelos",
+      "description": "Aprenda os fundamentos da fotografia para posar com confiança e naturalidade. Técnicas de expressão facial, poses básicas e como trabalhar com diferentes tipos de iluminação.",
+      "instructor": "Ana Silva",
+      "date": "15-16 Março 2025",
+      "duration": "2 dias",
+      "price": "R$ 450",
+      "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=300&fit=crop",
+      "category": "fotografia",
+      "level": "iniciante",
+      "spots": 15,
+      "available": 8,
+      "location": "Salvador, BA",
+      "tags": ["Fotografia", "Poses", "Expressão", "Iluminação"]
+    },
+    {
+      "id": "workshop-desfile-profissional",
+      "title": "Desfile Profissional",
+      "description": "Técnicas avançadas de desfile, postura, ritmo e apresentação. Ideal para modelos que querem se destacar em passarelas e eventos de moda.",
+      "instructor": "Carlos Mendes",
+      "date": "22-23 Março 2025",
+      "duration": "2 dias",
+      "price": "R$ 580",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&h=300&fit=crop",
+      "category": "desfile",
+      "level": "intermediario",
+      "spots": 12,
+      "available": 5,
+      "location": "Salvador, BA",
+      "tags": ["Desfile", "Postura", "Ritmo", "Moda"]
+    }
+  ]
+}

@@ -4,100 +4,10 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Workshop } from "@/types/models";
+import workshopsData from "@/data/workshops.json";
 
-interface Workshop {
-  id: string;
-  title: string;
-  description: string;
-  instructor: string;
-  date: string;
-  duration: string;
-  price: string;
-  image: string;
-  category: "fotografia" | "desfile" | "posando" | "maquiagem" | "estilo";
-  level: "iniciante" | "intermediario" | "avancado";
-  spots: number;
-  available: number;
-  location: string;
-  tags: string[];
-}
-
-// Dados simulados dos workshops (em produção, viriam da API)
-const workshops: Workshop[] = [
-  {
-    id: "workshop-fotografia-basica",
-    title: "Fotografia Básica para Modelos",
-    description:
-      "Aprenda os fundamentos da fotografia para posar com confiança e naturalidade. Técnicas de expressão facial, poses básicas e como trabalhar com diferentes tipos de iluminação.",
-    instructor: "Ana Silva",
-    date: "15-16 Março 2025",
-    duration: "2 dias",
-    price: "R$ 450",
-    image:
-      "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=300&fit=crop",
-    category: "fotografia",
-    level: "iniciante",
-    spots: 15,
-    available: 8,
-    location: "Salvador, BA",
-    tags: ["Fotografia", "Poses", "Expressão", "Iluminação"],
-  },
-  {
-    id: "workshop-desfile-profissional",
-    title: "Desfile Profissional",
-    description:
-      "Técnicas avançadas de desfile, postura, ritmo e apresentação. Ideal para modelos que querem se destacar em passarelas e eventos de moda.",
-    instructor: "Carlos Mendes",
-    date: "22-23 Março 2025",
-    duration: "2 dias",
-    price: "R$ 580",
-    image:
-      "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&h=300&fit=crop",
-    category: "desfile",
-    level: "intermediario",
-    spots: 12,
-    available: 5,
-    location: "Salvador, BA",
-    tags: ["Desfile", "Postura", "Ritmo", "Moda"],
-  },
-  {
-    id: "workshop-posando-avancado",
-    title: "Posando Avançado",
-    description:
-      "Técnicas sofisticadas de posar para editoriais de moda, campanhas publicitárias e sessões artísticas. Foco em criatividade e versatilidade.",
-    instructor: "Maria Santos",
-    date: "29-30 Março 2025",
-    duration: "2 dias",
-    price: "R$ 520",
-    image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=300&fit=crop",
-    category: "posando",
-    level: "avancado",
-    spots: 10,
-    available: 3,
-    location: "Salvador, BA",
-    tags: ["Poses", "Editorial", "Criatividade", "Arte"],
-  },
-
-  {
-    id: "workshop-fotografia-editorial",
-    title: "Fotografia Editorial",
-    description:
-      "Técnicas especializadas para fotos editoriais de alta moda. Trabalho com conceitos criativos e narrativas visuais.",
-    instructor: "Rafael Lima",
-    date: "19-20 Abril 2025",
-    duration: "2 dias",
-    price: "R$ 650",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
-    category: "fotografia",
-    level: "avancado",
-    spots: 8,
-    available: 2,
-    location: "Salvador, BA",
-    tags: ["Editorial", "Alta Moda", "Conceito", "Narrativa"],
-  },
-];
+const workshops: Workshop[] = (workshopsData as any).workshops;
 
 const categories = [
   { id: "todos", name: "Todos", color: "bg-gray-500" },

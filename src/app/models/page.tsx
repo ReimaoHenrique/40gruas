@@ -3,59 +3,10 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import Image from "next/image";
+import modelsData from "@/data/models.json";
+import { Model } from "@/types/models";
 
-interface Model {
-  id: string;
-  name: string;
-  category: "male" | "female";
-  image: string;
-  description: string;
-}
-
-const models: Model[] = [
-  {
-    id: "henrique",
-    name: "Henrique",
-    category: "male",
-    image: "/model-placeholder.svg",
-    description: "Modelo masculino experiente em fotografia e eventos.",
-  },
-  {
-    id: "pedro",
-    name: "Pedro",
-    category: "male",
-    image: "/model-placeholder.svg",
-    description: "Especialista em desfiles e campanhas publicitárias.",
-  },
-  {
-    id: "ana",
-    name: "Ana",
-    category: "female",
-    image: "/model-placeholder.svg",
-    description: "Modelo feminina versátil para diversos tipos de projeto.",
-  },
-  {
-    id: "maria",
-    name: "Maria",
-    category: "female",
-    image: "/model-placeholder.svg",
-    description: "Especialista em fotografia de moda e editoriais.",
-  },
-  {
-    id: "carlos",
-    name: "Carlos",
-    category: "male",
-    image: "/model-placeholder.svg",
-    description: "Modelo masculino para eventos corporativos.",
-  },
-  {
-    id: "julia",
-    name: "Júlia",
-    category: "female",
-    image: "/model-placeholder.svg",
-    description: "Modelo feminina para desfiles e apresentações.",
-  },
-];
+const models: Model[] = modelsData as Model[];
 
 export default function ModelsPage() {
   const maleModels = models.filter((model) => model.category === "male");
