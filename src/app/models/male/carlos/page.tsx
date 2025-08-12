@@ -1,12 +1,11 @@
-import { AnimatedHeader } from "@/components/layout/AnimatedHeader";
+import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function CarlosPage() {
   return (
     <div className="min-h-screen bg-white">
-      <AnimatedHeader />
+      <Header />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-white">

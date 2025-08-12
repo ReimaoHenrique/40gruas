@@ -1,5 +1,3 @@
-import { Button } from "../ui/Button";
-
 export function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">

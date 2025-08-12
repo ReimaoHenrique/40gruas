@@ -7,7 +7,6 @@ import { ModelsGrid } from "@/components/sections/ModelsGrid";
 import { About } from "@/components/sections/About";
 import { Services } from "@/components/sections/Services";
 import { Workshops } from "@/components/sections/Workshops";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { TestimonialsMarquee } from "@/components/sections/TestimonialsMarquee";
 import { PartnersMarquee } from "@/components/sections/PartnersMarquee";
 import { Contact } from "@/components/sections/Contact";

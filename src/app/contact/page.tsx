@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatedHeader } from "@/components/layout/AnimatedHeader";
+import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/Button";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { ThankYouModal } from "@/components/sections/ThankYouModal";
 

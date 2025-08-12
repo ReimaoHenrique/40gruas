@@ -151,7 +151,7 @@ function ModelCard({ model, index }: ModelCardProps) {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
     hover: {
@@ -159,7 +159,7 @@ function ModelCard({ model, index }: ModelCardProps) {
       scale: 1.02,
       transition: {
         duration: 0.3,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   };
@@ -169,7 +169,7 @@ function ModelCard({ model, index }: ModelCardProps) {
       scale: 1.1,
       transition: {
         duration: 0.4,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   };

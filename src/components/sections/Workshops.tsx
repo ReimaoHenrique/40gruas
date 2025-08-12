@@ -222,8 +222,8 @@ export function Workshops() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {filteredWorkshops.map((workshop, index) => (
-            <WorkshopCard key={workshop.id} workshop={workshop} index={index} />
+          {filteredWorkshops.map((workshop) => (
+            <WorkshopCard key={workshop.id} workshop={workshop} />
           ))}
         </motion.div>
 
@@ -252,7 +252,7 @@ export function Workshops() {
 
 interface WorkshopCardProps {
   workshop: Workshop;
-  index: number;
+  index?: number;
 }
 
 function WorkshopCard({ workshop, index }: WorkshopCardProps) {
@@ -268,7 +268,7 @@ function WorkshopCard({ workshop, index }: WorkshopCardProps) {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
     hover: {
@@ -276,7 +276,7 @@ function WorkshopCard({ workshop, index }: WorkshopCardProps) {
       scale: 1.02,
       transition: {
         duration: 0.3,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   };

@@ -1,12 +1,11 @@
-import { AnimatedHeader } from "@/components/layout/AnimatedHeader";
+import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function MariaPage() {
   return (
     <div className="min-h-screen bg-white">
-      <AnimatedHeader />
+      <Header />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-pink-50 to-white">
@@ -55,7 +54,10 @@ export default function MariaPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="bg-gray-100 rounded-lg aspect-square flex items-center justify-center">
+              <div
+                key={item}
+                className="bg-gray-100 rounded-lg aspect-square flex items-center justify-center"
+              >
                 <span className="text-gray-500">Foto {item}</span>
               </div>
             ))}

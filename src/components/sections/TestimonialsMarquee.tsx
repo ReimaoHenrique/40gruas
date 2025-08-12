@@ -131,7 +131,7 @@ export function TestimonialsMarquee() {
 
                   {/* Depoimento */}
                   <p className="text-gray-700 italic leading-relaxed">
-                    "{testimonial.text}"
+                    &ldquo;{testimonial.text}&rdquo;
                   </p>
                 </div>
               </motion.div>

@@ -176,12 +176,12 @@ export function AnimatedHeader() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            {navigationItems.map((item, index) => (
+            {navigationItems.map((item) => (
               <motion.div
                 key={item.href}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
                 whileHover={{ y: -2 }}
               >
                 <Link
@@ -283,7 +283,7 @@ export function AnimatedHeader() {
             >
               <div className="container mx-auto px-4 py-8">
                 <motion.nav className="flex flex-col space-y-4">
-                  {navigationItems.map((item, index) => (
+                  {navigationItems.map((item) => (
                     <motion.div
                       key={item.href}
                       variants={menuItemVariants}
