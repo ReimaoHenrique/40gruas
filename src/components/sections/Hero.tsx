@@ -1,6 +1,9 @@
 export function Hero() {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+      aria-label="Página inicial - Agência de Modelos 40grausbahia"
+    >
       {/* Video Background */}
       <video
         autoPlay
@@ -8,13 +11,16 @@ export function Hero() {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0"
+        aria-hidden="true"
+        title="Vídeo de fundo da agência de modelos"
       >
         <source src="/video_Hero.mp4" type="video/mp4" />
+        <track kind="captions" src="" label="Português" />
         Seu navegador não suporta vídeos.
       </video>
 
       {/* Overlay escuro para melhorar legibilidade */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
+      <div className="absolute inset-0 bg-black/40 z-10" aria-hidden="true" />
 
       {/* Conteúdo do Hero */}
       <div className="relative z-20 text-center px-4 max-w-6xl mx-auto">
@@ -22,18 +28,26 @@ export function Hero() {
           40grausbahia
         </h1>
         <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-yellow-300 mb-4 md:mb-6 drop-shadow-xl">
-          Agência de Modelos
+          Agência de Modelos Profissionais
         </h2>
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-12 max-w-4xl mx-auto drop-shadow-lg px-2">
           Descubra talentos excepcionais para seus projetos. Modelos
-          profissionais para fotografia, eventos e desfiles.
+          profissionais para fotografia, eventos, desfiles e campanhas
+          publicitárias.
         </p>
 
-        {/* Botão Glassmorphism */}
+        {/* Botões de Call-to-Action */}
         <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center px-4">
-          <button className="group relative w-full sm:w-auto px-6 sm:px-8 md:px-12 py-4 md:py-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-full overflow-hidden transition-all duration-500 hover:scale-105 hover:bg-white/20">
+          <a
+            href="/contact"
+            className="group relative w-full sm:w-auto px-6 sm:px-8 md:px-12 py-4 md:py-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-full overflow-hidden transition-all duration-500 hover:scale-105 hover:bg-white/20 focus:outline-none focus:ring-4 focus:ring-white/30"
+            aria-label="Contratar modelos - Ir para página de contato"
+          >
             {/* Efeito de brilho interno */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+              aria-hidden="true"
+            />
 
             {/* Conteúdo do botão */}
             <div className="relative flex items-center justify-center sm:justify-start space-x-2 md:space-x-3">
@@ -45,6 +59,7 @@ export function Hero() {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -54,11 +69,22 @@ export function Hero() {
                 />
               </svg>
             </div>
-          </button>
+          </a>
 
-          <button className="w-full sm:w-auto px-6 sm:px-8 md:px-12 py-4 md:py-6 bg-transparent border-2 border-white/30 text-white font-bold text-base md:text-lg rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm">
+          <a
+            href="/models"
+            className="w-full sm:w-auto px-6 sm:px-8 md:px-12 py-4 md:py-6 bg-transparent border-2 border-white/30 text-white font-bold text-base md:text-lg rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-white/30"
+            aria-label="Ver portfólio de modelos"
+          >
             VER PORTFÓLIO
-          </button>
+          </a>
+        </div>
+
+        {/* Informações adicionais para SEO */}
+        <div className="mt-8 text-white/70 text-sm md:text-base">
+          <p>
+            Modelos profissionais para São Paulo, Rio de Janeiro e todo o Brasil
+          </p>
         </div>
       </div>
     </section>

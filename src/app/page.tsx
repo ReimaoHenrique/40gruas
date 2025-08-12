@@ -13,19 +13,35 @@ import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
-      <AnimatedHeader />
-      <Hero />
-      <div className="pt-16">
-        <ModelsGrid />
-        <About />
-        <Services />
-        <Workshops />
-        <TestimonialsMarquee />
-        <PartnersMarquee />
-        <Contact />
-      </div>
-      <Footer />
-    </div>
+    <>
+      <main className="min-h-screen bg-white">
+        <AnimatedHeader />
+        <Hero />
+        <div className="pt-16">
+          <section aria-label="Nossos Modelos">
+            <ModelsGrid />
+          </section>
+          <section aria-label="Sobre Nós">
+            <About />
+          </section>
+          <section aria-label="Nossos Serviços">
+            <Services />
+          </section>
+          <section aria-label="Workshops e Treinamentos">
+            <Workshops />
+          </section>
+          <section aria-label="Depoimentos de Clientes">
+            <TestimonialsMarquee />
+          </section>
+          <section aria-label="Nossos Parceiros">
+            <PartnersMarquee />
+          </section>
+          <section aria-label="Entre em Contato">
+            <Contact />
+          </section>
+        </div>
+        <Footer />
+      </main>
+    </>
   );
 }
