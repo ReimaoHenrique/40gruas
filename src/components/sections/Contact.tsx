@@ -1,17 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { ContactForm } from "./ContactForm";
-import { ThankYouModal } from "./ThankYouModal";
 
 export function Contact() {
-  const [showThankYou, setShowThankYou] = useState(false);
-
-  const handleFormSubmit = () => {
-    setShowThankYou(true);
-    setTimeout(() => setShowThankYou(false), 3000);
-  };
-
   return (
     <section id="contact" className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -23,13 +14,8 @@ export function Contact() {
         </p>
 
         <div className="max-w-md mx-auto">
-          <ContactForm onSubmit={handleFormSubmit} />
+          <ContactForm />
         </div>
-
-        <ThankYouModal 
-          isOpen={showThankYou} 
-          onClose={() => setShowThankYou(false)} 
-        />
       </div>
     </section>
   );

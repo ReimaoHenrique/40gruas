@@ -1,10 +1,14 @@
+"use client";
+
 import { AnimatedHeader } from "@/components/layout/AnimatedHeader";
 import { Footer } from "@/components/layout/Footer";
 import { Workshops } from "@/components/sections/Workshops";
 import { UpcomingWorkshop } from "@/types/models";
 import workshopsData from "@/data/workshops.json";
 
-const upcomingWorkshops: UpcomingWorkshop[] = (workshopsData as any).upcoming;
+const upcomingWorkshops: UpcomingWorkshop[] = (
+  workshopsData as { upcoming: UpcomingWorkshop[] }
+).upcoming;
 
 export default function WorkshopsPage() {
   return (
@@ -193,14 +197,21 @@ export default function WorkshopsPage() {
                   };
 
                   return (
-                    <div key={workshop.id} className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
+                    <div
+                      key={workshop.id}
+                      className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm"
+                    >
                       <div>
                         <h4 className="font-semibold text-gray-900">
                           {workshop.title}
                         </h4>
                         <p className="text-sm text-gray-600">{workshop.date}</p>
                       </div>
-                      <span className={`px-3 py-1 ${getStatusColor(workshop.status)} text-sm rounded-full`}>
+                      <span
+                        className={`px-3 py-1 ${getStatusColor(
+                          workshop.status
+                        )} text-sm rounded-full`}
+                      >
                         {workshop.available} vagas
                       </span>
                     </div>

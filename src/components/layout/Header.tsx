@@ -1,28 +1,59 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { NavigationMenu } from "./NavigationMenu";
 
+interface NavigationItem {
+  href: string;
+  label: string;
+}
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
-  const navigationItems = [
+  const navigationItems: NavigationItem[] = [
     { href: "/models", label: "MODELOS" },
-    { href: "/about", label: "SOBRE NÓS" },
+    { href: isHomePage ? "#about" : "/", label: "SOBRE NÓS" },
     { href: "/contact", label: "CONTATO" },
   ];
+
+  const handleNavigation = (item: NavigationItem) => {
+    if (item.href.startsWith("#")) {
+      const sectionId = item.href.substring(1);
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="text-2xl font-serif font-bold text-primary">
-            <Image src="/logo.svg" alt="Lux Models" width={120} height={40} />
+            <Image
+              src="/datasynk.svg"
+              alt="Datasynk - Desenvolvimento Web"
+              width={120}
+              height={40}
+            />
           </div>
 
           {/* Desktop Navigation */}
-          <NavigationMenu items={navigationItems} className="hidden md:flex" />
+          <NavigationMenu
+            items={navigationItems}
+            className="hidden md:flex"
+            onNavigation={handleNavigation}
+          />
 
           {/* Mobile Menu Button */}
           <button
@@ -48,10 +79,11 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <NavigationMenu 
-            items={navigationItems} 
+          <NavigationMenu
+            items={navigationItems}
             className="md:hidden mt-4 pb-4 border-t border-gray-100"
             mobile
+            onNavigation={handleNavigation}
           />
         )}
       </div>

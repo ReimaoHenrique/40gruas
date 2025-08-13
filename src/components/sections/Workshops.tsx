@@ -7,7 +7,8 @@ import Link from "next/link";
 import { Workshop } from "@/types/models";
 import workshopsData from "@/data/workshops.json";
 
-const workshops: Workshop[] = (workshopsData as any).workshops;
+const workshops: Workshop[] = (workshopsData as { workshops: Workshop[] })
+  .workshops;
 
 const categories = [
   { id: "todos", name: "Todos", color: "bg-gray-500" },
@@ -162,10 +163,9 @@ export function Workshops() {
 
 interface WorkshopCardProps {
   workshop: Workshop;
-  index?: number;
 }
 
-function WorkshopCard({ workshop, index }: WorkshopCardProps) {
+function WorkshopCard({ workshop }: WorkshopCardProps) {
   const cardVariants = {
     hidden: {
       opacity: 0,

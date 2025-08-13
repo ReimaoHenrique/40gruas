@@ -14,7 +14,8 @@
       "spots": 15,
       "available": 8,
       "location": "Salvador, BA",
-      "tags": ["Fotografia", "Poses", "Expressão", "Iluminação"]
+      "tags": ["Fotografia", "Poses", "Expressão", "Iluminação"],
+      "status": "available"
     },
     {
       "id": "workshop-desfile-profissional",
@@ -30,7 +31,31 @@
       "spots": 12,
       "available": 5,
       "location": "Salvador, BA",
-      "tags": ["Desfile", "Postura", "Ritmo", "Moda"]
+      "tags": ["Desfile", "Postura", "Ritmo", "Moda"],
+      "status": "limited"
+    }
+  ],
+  "upcoming": [
+    {
+      "id": "workshop-fotografia-basica",
+      "title": "Fotografia Básica para Modelos",
+      "date": "15-16 Março 2025",
+      "available": 8,
+      "status": "available"
+    },
+    {
+      "id": "workshop-desfile-profissional",
+      "title": "Desfile Profissional",
+      "date": "22-23 Março 2025",
+      "available": 5,
+      "status": "limited"
+    },
+    {
+      "id": "workshop-posando-avancado",
+      "title": "Posando Avançado",
+      "date": "29-30 Março 2025",
+      "available": 2,
+      "status": "almost-full"
     }
   ]
 }

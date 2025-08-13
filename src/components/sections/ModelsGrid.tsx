@@ -1,90 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Model } from "@/types/models";
+import modelsData from "@/data/models.json";
 
-interface Model {
-  id: string;
-  name: string;
-  category: "male" | "female";
-  image: string;
-  description: string;
-  specialties: string[];
+// Adicionar especialidades padrão para modelos que não as têm
+const models: Model[] = modelsData.map((model) => ({
+  ...model,
+  category: model.category as "male" | "female",
+  specialties: getDefaultSpecialties(model.category as "male" | "female"),
+}));
+
+function getDefaultSpecialties(category: "male" | "female"): string[] {
+  if (category === "male") {
+    return ["Fotografia", "Eventos", "Desfiles"];
+  } else {
+    return ["Fotografia", "Moda", "Editoriais"];
+  }
 }
-
-const models: Model[] = [
-  {
-    id: "henrique",
-    name: "Henrique",
-    category: "male",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
-    description: "Modelo masculino experiente em fotografia e eventos.",
-    specialties: ["Fotografia", "Eventos", "Desfiles"],
-  },
-  {
-    id: "pedro",
-    name: "Pedro",
-    category: "male",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
-    description: "Especialista em desfiles e campanhas publicitárias.",
-    specialties: ["Desfiles", "Campanhas", "Fotografia"],
-  },
-  {
-    id: "ana",
-    name: "Ana",
-    category: "female",
-    image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=500&fit=crop&crop=face",
-    description: "Modelo feminina versátil para diversos tipos de projeto.",
-    specialties: ["Fotografia", "Eventos", "Moda"],
-  },
-  {
-    id: "maria",
-    name: "Maria",
-    category: "female",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face",
-    description: "Especialista em fotografia de moda e editoriais.",
-    specialties: ["Moda", "Editoriais", "Fotografia"],
-  },
-  {
-    id: "carlos",
-    name: "Carlos",
-    category: "male",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face",
-    description: "Modelo masculino para eventos corporativos.",
-    specialties: ["Eventos", "Corporativo", "Fotografia"],
-  },
-  {
-    id: "julia",
-    name: "Júlia",
-    category: "female",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face",
-    description: "Modelo feminina para desfiles e apresentações.",
-    specialties: ["Desfiles", "Apresentações", "Moda"],
-  },
-  {
-    id: "rafael",
-    name: "Rafael",
-    category: "male",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
-    description: "Especialista em campanhas publicitárias.",
-    specialties: ["Publicidade", "Campanhas", "Fotografia"],
-  },
-  {
-    id: "sofia",
-    name: "Sofia",
-    category: "female",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face",
-    description: "Modelo feminina para eventos e fotografia.",
-    specialties: ["Eventos", "Fotografia", "Moda"],
-  },
-];
 
 export function ModelsGrid() {
   const containerVariants = {
@@ -235,7 +168,7 @@ function ModelCard({ model, index }: ModelCardProps) {
 
                 {/* Especialidades */}
                 <div className="flex flex-wrap gap-2">
-                  {model.specialties.map((specialty, idx) => (
+                  {model.specialties!.map((specialty, idx) => (
                     <motion.span
                       key={idx}
                       initial={{ opacity: 0, scale: 0.8 }}

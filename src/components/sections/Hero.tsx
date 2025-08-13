@@ -15,7 +15,6 @@ export function Hero() {
         title="Vídeo de fundo da agência de modelos"
       >
         <source src="/video_Hero.mp4" type="video/mp4" />
-        <track kind="captions" src="" label="Português" />
         Seu navegador não suporta vídeos.
       </video>
 

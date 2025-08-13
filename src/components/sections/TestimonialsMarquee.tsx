@@ -19,8 +19,9 @@ const testimonials: Testimonial[] = [
     role: "Diretora de Marketing",
     company: "Moda Bahia",
     text: "Excelente trabalho! Os modelos da 40grausbahia são profissionais e entregam resultados incríveis.",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-    rating: 5
+    avatar:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    rating: 5,
   },
   {
     id: 2,
@@ -28,8 +29,9 @@ const testimonials: Testimonial[] = [
     role: "Fotógrafo",
     company: "Studio Clicks",
     text: "Trabalhar com a 40grausbahia é sempre uma experiência incrível. Modelos talentosos e dedicados.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    rating: 5
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    rating: 5,
   },
   {
     id: 3,
@@ -37,8 +39,9 @@ const testimonials: Testimonial[] = [
     role: "Produtora de Eventos",
     company: "Eventos Bahia",
     text: "Profissionalismo e qualidade em todos os projetos. Recomendo fortemente!",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-    rating: 5
+    avatar:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    rating: 5,
   },
   {
     id: 4,
@@ -46,8 +49,9 @@ const testimonials: Testimonial[] = [
     role: "Diretor Criativo",
     company: "Agência Digital",
     text: "Os modelos da 40grausbahia elevam qualquer campanha ao próximo nível.",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    rating: 5
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    rating: 5,
   },
   {
     id: 5,
@@ -55,8 +59,9 @@ const testimonials: Testimonial[] = [
     role: "Stylist",
     company: "Fashion House",
     text: "Qualidade excepcional e versatilidade. Perfeito para qualquer tipo de projeto.",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
-    rating: 5
+    avatar:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    rating: 5,
   },
   {
     id: 6,
@@ -64,9 +69,10 @@ const testimonials: Testimonial[] = [
     role: "Produtor de TV",
     company: "Canal Bahia",
     text: "Profissionais de primeira linha. Sempre entregam além das expectativas.",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
-    rating: 5
-  }
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    rating: 5,
+  },
 ];
 
 export function TestimonialsMarquee() {
@@ -84,7 +90,8 @@ export function TestimonialsMarquee() {
             O QUE DIZEM SOBRE NÓS
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Depoimentos de clientes que confiaram na 40grausbahia para seus projetos.
+            Depoimentos de clientes que confiaram na 40grausbahia para seus
+            projetos.
           </p>
         </motion.div>
 
@@ -109,9 +116,15 @@ export function TestimonialsMarquee() {
                       className="w-12 h-12 rounded-full object-cover mr-4"
                     />
                     <div>
-                      <h3 className="font-semibold text-gray-900">{testimonial.name}</h3>
-                      <p className="text-sm text-gray-600">{testimonial.role}</p>
-                      <p className="text-xs text-primary font-medium">{testimonial.company}</p>
+                      <h3 className="font-semibold text-gray-900">
+                        {testimonial.name}
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        {testimonial.role}
+                      </p>
+                      <p className="text-xs text-primary font-medium">
+                        {testimonial.company}
+                      </p>
                     </div>
                   </div>
 

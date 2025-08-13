@@ -4,7 +4,11 @@ export interface Model {
   category: "male" | "female";
   image: string;
   description: string;
+  specialties?: string[];
 }
+
+// Declaração para o arquivo JSON
+export type ModelsData = Model[];
 
 export interface Workshop {
   id: string;
@@ -21,6 +25,7 @@ export interface Workshop {
   available: number;
   location: string;
   tags: string[];
+  status?: "available" | "limited" | "almost-full";
 }
 
 export interface UpcomingWorkshop {

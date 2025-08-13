@@ -4,23 +4,24 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface NavigationItem {
   href: string;
   label: string;
 }
 
-const navigationItems: NavigationItem[] = [
-  { href: "/", label: "INÍCIO" },
-  { href: "/models", label: "MODELOS" },
-  { href: "/workshops", label: "WORKSHOPS" },
-  { href: "/about", label: "SOBRE" },
-  { href: "/contact", label: "CONTATO" },
-];
-
 export function AnimatedHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const navigationItems: NavigationItem[] = [
+    { href: "/", label: "INÍCIO" },
+    { href: "/models", label: "MODELOS" },
+    { href: "/workshops", label: "WORKSHOPS" },
+    { href: "/about", label: "SOBRE" },
+    { href: "/contact", label: "CONTATO" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +32,20 @@ export function AnimatedHeader() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavigation = (item: NavigationItem) => {
+    if (item.href.startsWith("#")) {
+      const sectionId = item.href.substring(1);
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+      setIsMenuOpen(false);
+    }
+  };
 
   const headerVariants = {
     initial: { y: -100, opacity: 0 },
@@ -154,10 +169,10 @@ export function AnimatedHeader() {
             <Link href="/" className="flex items-center space-x-2">
               <Image
                 src="/40graus_Logo.jpg"
-                alt="40grausbahia"
+                alt="40 Graus - Agência de Modelos Premium"
                 width={50}
                 height={50}
-                className="rounded-full"
+                className="rounded-lg"
               />
               <span
                 className={`font-bold ${
@@ -187,23 +202,16 @@ export function AnimatedHeader() {
                 <Link
                   href={item.href}
                   className={`font-medium relative group transition-colors ${
-                    item.label === "SOBRE"
-                      ? "text-yellow-400 hover:text-yellow-300"
-                      : scrolled
-                      ? "text-white hover:text-yellow-400"
-                      : "text-gray-800 hover:text-white"
-                  }`}
+                    scrolled ? "text-white" : "text-gray-800"
+                  } hover:text-white`}
                 >
                   {item.label}
                   <motion.div
                     className={`absolute -bottom-1 left-0 h-0.5 ${
-                      item.label === "SOBRE"
-                        ? "bg-gradient-to-r from-yellow-400 to-yellow-500"
-                        : scrolled
+                      scrolled
                         ? "bg-gradient-to-r from-yellow-400 to-yellow-500"
                         : "bg-gradient-to-r from-white to-gray-100"
                     }`}
-                    initial={{ width: item.label === "SOBRE" ? "100%" : 0 }}
                     whileHover={{ width: "100%" }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
                   />
@@ -292,11 +300,9 @@ export function AnimatedHeader() {
                     >
                       <Link
                         href={item.href}
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => handleNavigation(item)}
                         className={`text-xl md:text-2xl font-semibold transition-all duration-300 block py-3 px-4 rounded-lg ${
-                          item.label === "SOBRE"
-                            ? "text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10"
-                            : scrolled
+                          scrolled
                             ? "text-white hover:text-yellow-400 hover:bg-white/10"
                             : "text-white hover:text-gray-900 hover:bg-white/20"
                         }`}

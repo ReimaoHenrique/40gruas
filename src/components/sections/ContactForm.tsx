@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "../ui/Button";
-
-interface ContactFormProps {
-  onSubmit: () => void;
-}
+import { ThankYouModal } from "./ThankYouModal";
 
 interface FormData {
   name: string;
@@ -13,17 +10,19 @@ interface FormData {
   message: string;
 }
 
-export function ContactForm({ onSubmit }: ContactFormProps) {
+export function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phone: "",
     message: "",
   });
+  const [showThankYou, setShowThankYou] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit();
+    setShowThankYou(true);
     setFormData({ name: "", phone: "", message: "" });
+    setTimeout(() => setShowThankYou(false), 3000);
   };
 
   const handleInputChange = (field: keyof FormData) => (
@@ -70,6 +69,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
       >
         Solicitar Orçamento
       </Button>
+      {showThankYou && <ThankYouModal />}
     </form>
   );
 }

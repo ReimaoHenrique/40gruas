@@ -3,36 +3,49 @@
     "id": "henrique",
     "name": "Henrique",
     "category": "male",
-    "image": "/model-placeholder.svg",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
     "description": "Modelo masculino experiente em fotografia e eventos."
   },
   {
     "id": "pedro",
     "name": "Pedro",
     "category": "male",
-    "image": "/model-placeholder.svg",
+    "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
     "description": "Especialista em desfiles e campanhas publicitárias."
   },
-
   {
-    "id": "maria",
-    "name": "Maria",
-    "category": "female",
-    "image": "/model-placeholder.svg",
-    "description": "Especialista em fotografia de moda e editoriais."
+    "id": "rafael",
+    "name": "Rafael",
+    "category": "male",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
+    "description": "Especialista em campanhas publicitárias."
   },
   {
     "id": "carlos",
     "name": "Carlos",
     "category": "male",
-    "image": "/model-placeholder.svg",
+    "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face",
     "description": "Modelo masculino para eventos corporativos."
+  },
+  {
+    "id": "maria",
+    "name": "Maria",
+    "category": "female",
+    "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face",
+    "description": "Especialista em fotografia de moda e editoriais."
   },
   {
     "id": "julia",
     "name": "Júlia",
     "category": "female",
-    "image": "/model-placeholder.svg",
+    "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face",
     "description": "Modelo feminina para desfiles e apresentações."
+  },
+  {
+    "id": "sofia",
+    "name": "Sofia",
+    "category": "female",
+    "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face",
+    "description": "Modelo feminina para eventos e fotografia."
   }
 ]

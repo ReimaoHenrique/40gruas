@@ -7,7 +7,7 @@ export default function HenriquePage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
@@ -17,8 +17,9 @@ export default function HenriquePage() {
                 Henrique
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Modelo masculino experiente em fotografia e eventos. 
-                Especialista em criar conexões autênticas com a câmera e o público.
+                Modelo masculino experiente em fotografia e eventos.
+                Especialista em criar conexões autênticas com a câmera e o
+                público.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button href="/contact" variant="primary">
@@ -31,7 +32,7 @@ export default function HenriquePage() {
             </div>
             <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
               <Image
-                src="/model-placeholder.svg"
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
                 alt="Henrique"
                 fill
                 className="object-cover"
@@ -52,27 +53,39 @@ export default function HenriquePage() {
               </h2>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Altura</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Altura
+                  </h3>
                   <p className="text-gray-600">1,85m</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Peso</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Peso
+                  </h3>
                   <p className="text-gray-600">78kg</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Tamanho</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Tamanho
+                  </h3>
                   <p className="text-gray-600">M</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Calçado</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Calçado
+                  </h3>
                   <p className="text-gray-600">42</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Cabelo</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Cabelo
+                  </h3>
                   <p className="text-gray-600">Castanho escuro</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Olhos</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Olhos
+                  </h3>
                   <p className="text-gray-600">Castanhos</p>
                 </div>
               </div>
@@ -85,9 +98,12 @@ export default function HenriquePage() {
               </h2>
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Fotografia</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    Fotografia
+                  </h3>
                   <p className="text-gray-600 mb-4">
-                    Henrique possui vasta experiência em sessões fotográficas, incluindo:
+                    Henrique possui vasta experiência em sessões fotográficas,
+                    incluindo:
                   </p>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>Fotografia de moda e editorial</li>
@@ -98,7 +114,9 @@ export default function HenriquePage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Eventos</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    Eventos
+                  </h3>
                   <p className="text-gray-600 mb-4">
                     Especialista em eventos corporativos e sociais:
                   </p>
@@ -111,7 +129,9 @@ export default function HenriquePage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Desfiles</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    Desfiles
+                  </h3>
                   <p className="text-gray-600 mb-4">
                     Experiência em desfiles de moda e apresentações:
                   </p>
@@ -136,7 +156,10 @@ export default function HenriquePage() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {Array.from({ length: 8 }, (_, i) => (
-              <div key={i} className="aspect-[3/4] bg-gray-200 rounded-lg flex items-center justify-center">
+              <div
+                key={i}
+                className="aspect-[3/4] bg-gray-200 rounded-lg flex items-center justify-center"
+              >
                 <span className="text-gray-500">Foto {i + 1}</span>
               </div>
             ))}
