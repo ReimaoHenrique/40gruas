@@ -1,0 +1,14 @@
+{
+  "id": "pedro",
+  "name": "Pedro",
+  "category": "male",
+  "imagePerfil": "/models/pedro/pedro_perfil.jpeg",
+  "imageBook": [
+    "/models/pedro/279790674_363146072498536_6072945026722141853_n.jpg",
+    "/models/pedro/290756977_363038265861700_664880105359452767_n.jpg",
+    "/models/pedro/294754027_149746651049780_5112578919768549901_n.jpg",
+    "/models/pedro/318371821_814421382963712_8966975421565948703_n.jpg",
+    "/models/pedro/pedro_perfil.jpeg"
+  ],
+  "description": "Especialista em desfiles e campanhas publicitárias. Modelo versátil com presença marcante e estilo único."
+}

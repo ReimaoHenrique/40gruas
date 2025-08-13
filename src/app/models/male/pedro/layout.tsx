@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import modelsData from "@/data/models.json";
 
 export async function generateMetadata(): Promise<Metadata> {
-  // Busca os dados do Pedro no JSON
   const pedroData = modelsData.find((model) => model.id === "pedro");
 
   if (!pedroData) {
@@ -14,7 +13,32 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL || "https://40grausbahia.vercel.app";
-  const imageUrl = `${baseUrl}${pedroData.imagePerfil}`;
+
+  // Função para garantir a barra no começo
+  const fixPath = (path: string): string =>
+    path.startsWith("/") ? path : "/" + path;
+
+  const imageUrl = `${baseUrl}${fixPath(pedroData.imagePerfil)}`;
+
+  // Garante que imageBook existe e é array, senão cria vazio
+  const imageBook = Array.isArray(pedroData.imageBook)
+    ? pedroData.imageBook
+    : [];
+
+  const openGraphImages = [
+    {
+      url: imageUrl,
+      width: 400,
+      height: 500,
+      alt: `${pedroData.name} - Modelo Masculino`,
+    },
+    ...imageBook.slice(0, 3).map((image, index) => ({
+      url: `${baseUrl}${fixPath(image)}`,
+      width: 400,
+      height: 500,
+      alt: `${pedroData.name} - Foto ${index + 1}`,
+    })),
+  ];
 
   return {
     title: `${pedroData.name} - Modelo Masculino | 40 Graus`,
@@ -38,27 +62,14 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     metadataBase: new URL(baseUrl),
     alternates: {
-      canonical: `/models/male/pedro`,
+      canonical: `${baseUrl}/models/male/pedro`,
     },
     openGraph: {
       title: `${pedroData.name} - Modelo Masculino | 40 Graus`,
       description: pedroData.description,
       url: `${baseUrl}/models/male/pedro`,
       siteName: "40 Graus",
-      images: [
-        {
-          url: imageUrl,
-          width: 400,
-          height: 500,
-          alt: `${pedroData.name} - Modelo Masculino`,
-        },
-        ...pedroData.imageBook.slice(0, 3).map((image, index) => ({
-          url: `${baseUrl}${image}`,
-          width: 400,
-          height: 500,
-          alt: `${pedroData.name} - Foto ${index + 1}`,
-        })),
-      ],
+      images: openGraphImages,
       locale: "pt_BR",
       type: "website",
     },
