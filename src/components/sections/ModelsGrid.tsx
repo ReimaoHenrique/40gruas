@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -147,7 +148,7 @@ function ModelCard({ model, index }: ModelCardProps) {
             className="relative aspect-[3/4] overflow-hidden"
           >
             <Image
-              src={model.image}
+              src={model.imagePerfil}
               alt={model.name}
               fill
               className="object-cover"

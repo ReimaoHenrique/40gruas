@@ -2,7 +2,8 @@ export interface Model {
   id: string;
   name: string;
   category: "male" | "female";
-  image: string;
+  imagePerfil: string;
+  imageBook: string[];
   description: string;
   specialties?: string[];
 }

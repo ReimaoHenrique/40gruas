@@ -89,7 +89,7 @@ function ModelCard({
       <div className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
         <div className="relative aspect-[3/4] overflow-hidden">
           <Image
-            src={model.image}
+            src={model.imagePerfil}
             alt={model.name}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"

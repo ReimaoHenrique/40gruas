@@ -3,49 +3,81 @@
     "id": "henrique",
     "name": "Henrique",
     "category": "male",
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
+    "imagePerfil": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
+    "imageBook": [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face"
+    ],
     "description": "Modelo masculino experiente em fotografia e eventos."
   },
   {
     "id": "pedro",
     "name": "Pedro",
     "category": "male",
-    "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
-    "description": "Especialista em desfiles e campanhas publicitárias."
+    "imagePerfil": "/models/pedro/pedro_perfil.jpeg",
+    "imageBook": [
+      "/models/pedro/279790674_363146072498536_6072945026722141853_n.jpg",
+      "/models/pedro/290756977_363038265861700_664880105359452767_n.jpg",
+      "/models/pedro/294754027_149746651049780_5112578919768549901_n.jpg",
+      "/models/pedro/318371821_814421382963712_8966975421565948703_n.jpg",
+      "/models/pedro/pedro_perfil.jpeg"
+    ],
+    "description": "Especialista em desfiles e campanhas publicitárias. Modelo versátil com presença marcante e estilo único."
   },
   {
     "id": "rafael",
     "name": "Rafael",
     "category": "male",
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
+    "imagePerfil": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
+    "imageBook": [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face"
+    ],
     "description": "Especialista em campanhas publicitárias."
   },
   {
     "id": "carlos",
     "name": "Carlos",
     "category": "male",
-    "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face",
+    "imagePerfil": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face",
+    "imageBook": [
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
+    ],
     "description": "Modelo masculino para eventos corporativos."
   },
   {
     "id": "maria",
     "name": "Maria",
     "category": "female",
-    "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face",
+    "imagePerfil": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face",
+    "imageBook": [
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face"
+    ],
     "description": "Especialista em fotografia de moda e editoriais."
   },
   {
     "id": "julia",
     "name": "Júlia",
     "category": "female",
-    "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face",
+    "imagePerfil": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face",
+    "imageBook": [
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face"
+    ],
     "description": "Modelo feminina para desfiles e apresentações."
   },
   {
     "id": "sofia",
     "name": "Sofia",
     "category": "female",
-    "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face",
+    "imagePerfil": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face",
+    "imageBook": [
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face"
+    ],
     "description": "Modelo feminina para eventos e fotografia."
   }
 ]

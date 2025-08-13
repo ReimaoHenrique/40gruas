@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Testimonial {
   id: number;
@@ -110,10 +111,13 @@ export function TestimonialsMarquee() {
                 <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                   {/* Avatar e Informações */}
                   <div className="flex items-center mb-4">
-                    <img
+                    <Image
                       src={testimonial.avatar}
                       alt={testimonial.name}
+                      width={150}
+                      height={150}
                       className="w-12 h-12 rounded-full object-cover mr-4"
+                      unoptimized
                     />
                     <div>
                       <h3 className="font-semibold text-gray-900">

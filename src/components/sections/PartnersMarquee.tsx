@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
+import Image from "next/image";
 interface Partner {
   id: number;
   name: string;
@@ -104,7 +104,9 @@ export function PartnersMarquee() {
                 <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
                   {/* Logo */}
                   <div className="w-48 h-24 mb-4 overflow-hidden rounded-lg">
-                    <img
+                    <Image
+                      width={150}
+                      height={150}
                       src={partner.logo}
                       alt={partner.name}
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"

@@ -1,24 +1,46 @@
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components";
+import { PixelImage } from "@/components/magicui/pixel-image";
+import { Model } from "@/types/models";
+import modelsData from "@/data/models.json";
 import Image from "next/image";
 
 export default function PedroPage() {
+  // Busca os dados do Pedro no JSON
+  const pedroData = modelsData.find((model) => model.id === "pedro") as
+    | Model
+    | undefined;
+
+  // Se não encontrar os dados, mostra uma mensagem de erro
+  if (!pedroData) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            Modelo não encontrado
+          </h1>
+          <p className="text-gray-600 mb-6">
+            Não foi possível carregar as informações do modelo.
+          </p>
+          <Button href="/models" variant="primary">
+            Voltar aos Modelos
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-      
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl md:text-7xl font-serif font-bold text-gray-900 mb-6">
-                Pedro
+                {pedroData.name}
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Especialista em desfiles e campanhas publicitárias. 
-                Modelo versátil com presença marcante e estilo único.
+                {pedroData.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button href="/contact" variant="primary">
@@ -29,13 +51,17 @@ export default function PedroPage() {
                 </Button>
               </div>
             </div>
-            <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
-              <Image
-                src="/model-placeholder.svg"
-                alt="Pedro"
-                fill
-                className="object-cover"
-              />
+            <div className="flex justify-center items-center">
+              <div className="w-80 h-96">
+                <PixelImage
+                  src={pedroData.imagePerfil}
+                  grid="8x8"
+                  grayscaleAnimation={true}
+                  pixelFadeInDuration={800}
+                  maxAnimationDelay={1500}
+                  colorRevealDelay={2000}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -52,27 +78,39 @@ export default function PedroPage() {
               </h2>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Altura</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Altura
+                  </h3>
                   <p className="text-gray-600">1,88m</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Peso</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Peso
+                  </h3>
                   <p className="text-gray-600">82kg</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Tamanho</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Tamanho
+                  </h3>
                   <p className="text-gray-600">L</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Calçado</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Calçado
+                  </h3>
                   <p className="text-gray-600">43</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Cabelo</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Cabelo
+                  </h3>
                   <p className="text-gray-600">Preto</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Olhos</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Olhos
+                  </h3>
                   <p className="text-gray-600">Verdes</p>
                 </div>
               </div>
@@ -85,7 +123,9 @@ export default function PedroPage() {
               </h2>
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Desfiles</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    Desfiles
+                  </h3>
                   <p className="text-gray-600 mb-4">
                     Pedro é especialista em desfiles de moda e apresentações:
                   </p>
@@ -98,7 +138,9 @@ export default function PedroPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Campanhas Publicitárias</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    Campanhas Publicitárias
+                  </h3>
                   <p className="text-gray-600 mb-4">
                     Experiência sólida em campanhas publicitárias:
                   </p>
@@ -111,7 +153,9 @@ export default function PedroPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Fotografia</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    Fotografia
+                  </h3>
                   <p className="text-gray-600 mb-4">
                     Vasta experiência em fotografia profissional:
                   </p>
@@ -132,12 +176,21 @@ export default function PedroPage() {
       <section className="py-16 bg-accent">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-serif font-bold text-center text-gray-900 mb-12">
-            Portfólio
+            Book de Fotos
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {Array.from({ length: 8 }, (_, i) => (
-              <div key={i} className="aspect-[3/4] bg-gray-200 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500">Foto {i + 1}</span>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {pedroData.imageBook.map((image, index) => (
+              <div
+                key={index}
+                className="aspect-[3/4] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <Image
+                  src={image}
+                  alt={`${pedroData.name} - Foto ${index + 1}`}
+                  width={300}
+                  height={400}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
               </div>
             ))}
           </div>
@@ -148,7 +201,7 @@ export default function PedroPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-serif font-bold text-gray-900 mb-6">
-            Interessado em Trabalhar com Pedro?
+            Interessado em Trabalhar com {pedroData.name}?
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Entre em contato conosco para solicitar um orçamento personalizado.
@@ -163,8 +216,6 @@ export default function PedroPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

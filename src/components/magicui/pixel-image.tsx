@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useEffect, useMemo, useState } from "react";
 
@@ -30,42 +30,35 @@ interface PixelImageProps {
 
 export const PixelImage = ({
   src,
-  grid = "6x4",
+  grid = "8x8",
   grayscaleAnimation = true,
-  pixelFadeInDuration = 1000,
-  maxAnimationDelay = 1200,
-  colorRevealDelay = 1300,
+  pixelFadeInDuration = 800,
+  maxAnimationDelay = 1500,
+  colorRevealDelay = 2000,
   customGrid,
 }: PixelImageProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [showColor, setShowColor] = useState(false);
 
-  const MIN_GRID = 1;
-  const MAX_GRID = 16;
-
   const { rows, cols } = useMemo(() => {
-    const isValidGrid = (grid?: Grid) => {
-      if (!grid) return false;
-      const { rows, cols } = grid;
-      return (
-        Number.isInteger(rows) &&
-        Number.isInteger(cols) &&
-        rows >= MIN_GRID &&
-        cols >= MIN_GRID &&
-        rows <= MAX_GRID &&
-        cols <= MAX_GRID
-      );
-    };
-
-    return isValidGrid(customGrid) ? customGrid! : DEFAULT_GRIDS[grid];
+    if (customGrid) return customGrid;
+    return DEFAULT_GRIDS[grid];
   }, [customGrid, grid]);
 
   useEffect(() => {
-    setIsVisible(true);
+    // Pequeno delay para garantir que tudo está renderizado
+    const startTimeout = setTimeout(() => {
+      setIsVisible(true);
+    }, 300);
+
     const colorTimeout = setTimeout(() => {
       setShowColor(true);
     }, colorRevealDelay);
-    return () => clearTimeout(colorTimeout);
+
+    return () => {
+      clearTimeout(startTimeout);
+      clearTimeout(colorTimeout);
+    };
   }, [colorRevealDelay]);
 
   const pieces = useMemo(() => {
@@ -74,14 +67,23 @@ export const PixelImage = ({
       const row = Math.floor(index / cols);
       const col = index % cols;
 
+      // Calcula a posição central para focar no rosto
+      const centerOffset = 0.15; // 15% de margem em cada lado
+      const startX = centerOffset * 100;
+      const startY = centerOffset * 100;
+      const width = (100 - 2 * centerOffset * 100) / cols;
+      const height = (100 - 2 * centerOffset * 100) / rows;
+
       const clipPath = `polygon(
-        ${col * (100 / cols)}% ${row * (100 / rows)}%,
-        ${(col + 1) * (100 / cols)}% ${row * (100 / rows)}%,
-        ${(col + 1) * (100 / cols)}% ${(row + 1) * (100 / rows)}%,
-        ${col * (100 / cols)}% ${(row + 1) * (100 / rows)}%
+        ${startX + col * width}% ${startY + row * height}%,
+        ${startX + (col + 1) * width}% ${startY + row * height}%,
+        ${startX + (col + 1) * width}% ${startY + (row + 1) * height}%,
+        ${startX + col * width}% ${startY + (row + 1) * height}%
       )`;
 
-      const delay = Math.random() * maxAnimationDelay;
+      // Delay determinístico baseado no índice para evitar problemas de hidratação
+      const delay = (index / total) * maxAnimationDelay;
+
       return {
         clipPath,
         delay,
@@ -91,35 +93,47 @@ export const PixelImage = ({
 
   return (
     <div className="relative h-72 w-72 select-none md:h-96 md:w-96">
-      {pieces.map((piece, index) => (
-        <div
-          key={index}
-          className={cn(
-            "absolute inset-0 transition-all ease-out",
-            isVisible ? "opacity-100" : "opacity-0",
-          )}
-          style={{
-            clipPath: piece.clipPath,
-            transitionDelay: `${piece.delay}ms`,
-            transitionDuration: `${pixelFadeInDuration}ms`,
-          }}
-        >
-          <img
-            src={src}
-            alt={`Pixel image piece ${index + 1}`}
+      {/* Imagem de fundo completa */}
+      <Image
+        src={src}
+        alt="Background"
+        className="w-full h-full object-cover rounded-[2.5rem]"
+        draggable={false}
+      />
+
+      {/* Overlay com efeito de pixelização apenas no rosto */}
+      <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden">
+        {pieces.map((piece, index) => (
+          <div
+            key={index}
             className={cn(
-              "z-1 object-cover rounded-[2.5rem]",
-              grayscaleAnimation && (showColor ? "grayscale-0" : "grayscale"),
+              "absolute inset-0 transition-all ease-out",
+              isVisible ? "opacity-100" : "opacity-0"
             )}
             style={{
-              transition: grayscaleAnimation
-                ? `filter ${pixelFadeInDuration}ms cubic-bezier(0.4, 0, 0.2, 1)`
-                : "none",
+              clipPath: piece.clipPath,
+              transitionDelay: `${piece.delay}ms`,
+              transitionDuration: `${pixelFadeInDuration}ms`,
+              transform: isVisible ? "scale(1)" : "scale(0.9)",
             }}
-            draggable={false}
-          />
-        </div>
-      ))}
+          >
+            <Image
+              src={src}
+              alt={`Pixel ${index + 1}`}
+              className={cn(
+                "w-full h-full object-cover",
+                grayscaleAnimation && (showColor ? "grayscale-0" : "grayscale")
+              )}
+              style={{
+                transition: grayscaleAnimation
+                  ? `filter ${pixelFadeInDuration}ms ease-out`
+                  : "none",
+              }}
+              draggable={false}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
